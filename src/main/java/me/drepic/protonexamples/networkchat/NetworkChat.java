@@ -17,7 +17,6 @@ public class NetworkChat extends JavaPlugin implements Listener {
         if(manager != null){
             manager.registerMessageHandlers(this, this);
         }
-
         getServer().getPluginManager().registerEvents(this, this);
     }
 
