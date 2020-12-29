@@ -11,8 +11,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class NetworkChat extends JavaPlugin implements Listener {
 
     ProtonManager manager;
-
-
+    
     public void onEnable(){
         manager = Proton.getProtonManager();
         if(manager != null){
@@ -22,9 +21,7 @@ public class NetworkChat extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(this, this);
     }
 
-    public void onDisable(){
-
-    }
+    public void onDisable(){}
 
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event){
