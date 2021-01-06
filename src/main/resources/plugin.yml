@@ -1,4 +1,5 @@
 name: NetworkChat
 version: 1.0
 main: me.drepic.protonexamples.networkchat.NetworkChat
-depends: [Proton]
+depend:
+  - Proton

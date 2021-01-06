@@ -15,6 +15,7 @@ public class NetworkChat extends JavaPlugin implements Listener {
     public void onEnable(){
         manager = Proton.getProtonManager();
         if(manager != null){
+
             manager.registerMessageHandlers(this, this);
         }
         getServer().getPluginManager().registerEvents(this, this);
@@ -30,7 +31,7 @@ public class NetworkChat extends JavaPlugin implements Listener {
 
     @MessageHandler(namespace = "networkchat", subject="chatMessage")
     public void onChatReceived(PlayerMessage message){
-        getServer().broadcastMessage(String.format("[%s] %s", message.getPlayer(), message.getMessage()));
+        getServer().broadcastMessage(String.format("<%s> %s", message.getPlayer(), message.getMessage()));
     }
 
     public class PlayerMessage {
