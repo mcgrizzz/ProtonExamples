@@ -6,22 +6,22 @@ import me.drepic.proton.message.MessageHandler;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class NetworkChat extends JavaPlugin implements Listener {
 
-    ProtonManager manager;
-    
+    private ProtonManager manager;
+
+    @Override
     public void onEnable(){
-        manager = Proton.getProtonManager();
-        if(manager != null){
-
+        RegisteredServiceProvider<ProtonManager> registration = getServer().getServicesManager().getRegistration(ProtonManager.class);
+        if(registration != null) {
+            manager = registration.getProvider();
             manager.registerMessageHandlers(this, this);
+            getServer().getPluginManager().registerEvents(this, this);
         }
-        getServer().getPluginManager().registerEvents(this, this);
     }
-
-    public void onDisable(){}
 
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event){
