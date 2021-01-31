@@ -34,7 +34,8 @@
         <dependency>
             <groupId>com.github.mcgrizzz</groupId>
             <artifactId>Proton</artifactId>
-            <version>v1.1.0</version>
+            <version>v1.3.0</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

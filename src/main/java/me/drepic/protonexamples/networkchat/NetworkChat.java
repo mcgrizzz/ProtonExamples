@@ -1,8 +1,8 @@
 package me.drepic.protonexamples.networkchat;
 
-import me.drepic.proton.Proton;
-import me.drepic.proton.ProtonManager;
-import me.drepic.proton.message.MessageHandler;
+import me.drepic.proton.common.ProtonManager;
+import me.drepic.proton.common.ProtonProvider;
+import me.drepic.proton.common.message.MessageHandler;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
@@ -13,11 +13,9 @@ public class NetworkChat extends JavaPlugin implements Listener {
     ProtonManager manager;
     
     public void onEnable(){
-        manager = Proton.getProtonManager();
-        if(manager != null){
+        manager = ProtonProvider.get();
+        manager.registerMessageHandlers(this, this);
 
-            manager.registerMessageHandlers(this, this);
-        }
         getServer().getPluginManager().registerEvents(this, this);
     }
 
