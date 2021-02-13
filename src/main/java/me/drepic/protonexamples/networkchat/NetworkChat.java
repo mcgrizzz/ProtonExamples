@@ -14,7 +14,7 @@ public class NetworkChat extends JavaPlugin implements Listener {
     
     public void onEnable(){
         manager = ProtonProvider.get();
-        manager.registerMessageHandlers(this, this);
+        manager.registerMessageHandlers(this);
 
         getServer().getPluginManager().registerEvents(this, this);
     }
